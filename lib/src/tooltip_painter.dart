@@ -5,19 +5,44 @@ class TooltipPainter extends CustomPainter {
   final Color color;
   final TooltipArrowDirection arrowDirection;
   final TooltipDirection tooltipDirection;
+  final bool enableShadow;
+  final Color shadowColor;
+  final double shadowElevation;
+  final double shadowBlurRadius;
 
   TooltipPainter({
     required this.color,
     required this.arrowDirection,
     required this.tooltipDirection,
+    this.enableShadow = false,
+    this.shadowColor = const Color(0x4D000000),
+    this.shadowElevation = 4.0,
+    this.shadowBlurRadius = 4.0,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
+    final path = _buildPath(size);
+
+    if (enableShadow) {
+      final shadowPaint = Paint()
+        ..color = shadowColor
+        ..style = PaintingStyle.fill
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, shadowBlurRadius);
+
+      canvas.save();
+      canvas.translate(0, shadowElevation);
+      canvas.drawPath(path, shadowPaint);
+      canvas.restore();
+    }
+
     final paint = Paint()
       ..color = color
       ..style = PaintingStyle.fill;
+    canvas.drawPath(path, paint);
+  }
 
+  Path _buildPath(Size size) {
     final path = Path();
     const arrowHeight = 10.0;
     const arrowWidth = 12.0;
@@ -34,8 +59,10 @@ class TooltipPainter extends CustomPainter {
           arrowPos = size.height * 0.8;
           break;
         case TooltipArrowDirection.center:
-        default:
           arrowPos = size.height * 0.5;
+          break;
+        case TooltipArrowDirection.none:
+          arrowPos = 0;
           break;
       }
     } else {
@@ -47,10 +74,20 @@ class TooltipPainter extends CustomPainter {
           arrowPos = size.width * 0.8;
           break;
         case TooltipArrowDirection.center:
-        default:
           arrowPos = size.width * 0.5;
           break;
+        case TooltipArrowDirection.none:
+          arrowPos = 0;
+          break;
       }
+    }
+
+    if (arrowDirection == TooltipArrowDirection.none) {
+      final bodyRect = Rect.fromLTWH(0, 0, size.width, size.height);
+      path.addRRect(
+        RRect.fromRectAndRadius(bodyRect, Radius.circular(borderRadius)),
+      );
+      return path;
     }
 
     Rect bodyRect;
@@ -106,12 +143,16 @@ class TooltipPainter extends CustomPainter {
         break;
     }
 
-    canvas.drawPath(path, paint);
+    return path;
   }
 
   @override
   bool shouldRepaint(covariant TooltipPainter oldDelegate) =>
       color != oldDelegate.color ||
       arrowDirection != oldDelegate.arrowDirection ||
-      tooltipDirection != oldDelegate.tooltipDirection;
+      tooltipDirection != oldDelegate.tooltipDirection ||
+      enableShadow != oldDelegate.enableShadow ||
+      shadowColor != oldDelegate.shadowColor ||
+      shadowElevation != oldDelegate.shadowElevation ||
+      shadowBlurRadius != oldDelegate.shadowBlurRadius;
 }

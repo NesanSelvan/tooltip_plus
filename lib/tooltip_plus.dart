@@ -1,4 +1,4 @@
-library tooltip_plus;
-
-export 'src/tooltip_plus_wrapper.dart';
-export 'src/tooltip_enums.dart'; // Export enums so users can use TooltipDirection
+export 'src/tooltip_config.dart';
+export 'src/tooltip_controller.dart';
+export 'src/tooltip_target.dart';
+export 'src/tooltip_enums.dart';

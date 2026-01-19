@@ -3,8 +3,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tooltip_plus/tooltip_plus.dart';
 
 void main() {
-  test('adds one to input values', () {
+  test('TooltipTarget creates successfully', () {
     // Basic smoke test
-    expect(TooltipWrapper(child: Container()), isNotNull);
+    expect(TooltipTarget(child: Container()), isNotNull);
+  });
+
+  test('TooltipController creates successfully', () {
+    final controller = TooltipController();
+    expect(controller, isNotNull);
+    expect(controller.isVisible, isFalse);
+    controller.dispose();
   });
 }

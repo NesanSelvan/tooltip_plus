@@ -7,17 +7,31 @@ class TooltipContent extends StatelessWidget {
   final double width;
   final TooltipArrowDirection arrowDirection;
   final TooltipDirection direction;
+  final Color? tooltipColor;
+  final bool enableShadow;
+  final Color? shadowColor;
+  final double shadowElevation;
+  final double shadowBlurRadius;
 
-  TooltipContent({
-    Key? key,
+  const TooltipContent({
+    super.key,
     required this.height,
     required this.width,
     this.arrowDirection = TooltipArrowDirection.left,
     this.direction = TooltipDirection.top,
-  }) : super(key: key);
+    this.tooltipColor,
+    this.enableShadow = false,
+    this.shadowColor,
+    this.shadowElevation = 2.0,
+    this.shadowBlurRadius = 4.0,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final effectiveColor = tooltipColor ?? Colors.black.withValues(alpha: 0.8);
+    final effectiveShadowColor =
+        shadowColor ?? Colors.black.withValues(alpha: 0.5);
+
     EdgeInsets padding;
     switch (direction) {
       case TooltipDirection.top:
@@ -36,9 +50,13 @@ class TooltipContent extends StatelessWidget {
 
     return CustomPaint(
       painter: TooltipPainter(
-        color: Colors.red,
+        color: effectiveColor,
         arrowDirection: arrowDirection,
         tooltipDirection: direction,
+        enableShadow: enableShadow,
+        shadowColor: effectiveShadowColor,
+        shadowElevation: shadowElevation,
+        shadowBlurRadius: shadowBlurRadius,
       ),
       child: Container(height: height, width: width, padding: padding),
     );
