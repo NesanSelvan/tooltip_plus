@@ -3,9 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tooltip_pro/tooltip_pro.dart';
 
 void main() {
-  test('TooltipTarget creates successfully', () {
+  test('TooltipPro creates successfully', () {
     // Basic smoke test
-    expect(TooltipTarget(child: Container()), isNotNull);
+    expect(TooltipPro(child: Container()), isNotNull);
   });
 
   test('TooltipController creates successfully', () {

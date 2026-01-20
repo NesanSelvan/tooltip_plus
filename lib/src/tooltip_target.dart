@@ -4,7 +4,7 @@ import 'package:tooltip_pro/src/tooltip_controller.dart';
 import 'package:tooltip_pro/src/tooltip_enums.dart';
 import 'package:tooltip_pro/src/tooltip_size.dart';
 
-class TooltipTarget extends StatefulWidget {
+class TooltipPro extends StatefulWidget {
   final Widget child;
   final TooltipDirection direction;
   final TooltipArrowDirection arrowDirection;
@@ -32,7 +32,7 @@ class TooltipTarget extends StatefulWidget {
   final Widget Function(BuildContext context, VoidCallback hideTooltip)?
   tooltipBuilder;
 
-  const TooltipTarget({
+  const TooltipPro({
     super.key,
     required this.child,
     this.direction = TooltipDirection.top,
@@ -58,7 +58,7 @@ class TooltipTarget extends StatefulWidget {
 
   /// A minimal tooltip with just text.
   /// good for short labels.
-  factory TooltipTarget.minimal({
+  factory TooltipPro.minimal({
     Key? key,
     required Widget child,
     required String text,
@@ -79,7 +79,7 @@ class TooltipTarget extends StatefulWidget {
     double arrowWidth = 12.0,
     double arrowHeight = 10.0,
   }) {
-    return TooltipTarget(
+    return TooltipPro(
       key: key,
       direction: direction,
       tooltipColor: tooltipColor ?? const Color(0xFF1E1E1E),
@@ -110,7 +110,7 @@ class TooltipTarget extends StatefulWidget {
 
   /// A rich tooltip with a title, description, and icon.
   /// Styled with a modern "Info" look (blue accents).
-  factory TooltipTarget.rich({
+  factory TooltipPro.rich({
     Key? key,
     required Widget child,
     required String title,
@@ -133,7 +133,7 @@ class TooltipTarget extends StatefulWidget {
     double arrowWidth = 12.0,
     double arrowHeight = 10.0,
   }) {
-    return TooltipTarget(
+    return TooltipPro(
       key: key,
       direction: direction,
       tooltipColor: tooltipColor ?? Colors.white,
@@ -216,7 +216,7 @@ class TooltipTarget extends StatefulWidget {
   }
 
   /// An error/alert tooltip styled with red accents.
-  factory TooltipTarget.error({
+  factory TooltipPro.error({
     Key? key,
     required Widget child,
     required String message,
@@ -237,7 +237,7 @@ class TooltipTarget extends StatefulWidget {
     double arrowWidth = 12.0,
     double arrowHeight = 10.0,
   }) {
-    return TooltipTarget(
+    return TooltipPro(
       key: key,
       direction: direction,
       tooltipColor: tooltipColor ?? const Color(0xFFFEF2F2),
@@ -292,10 +292,10 @@ class TooltipTarget extends StatefulWidget {
   }
 
   @override
-  State<TooltipTarget> createState() => TooltipTargetState();
+  State<TooltipPro> createState() => TooltipProState();
 }
 
-class TooltipTargetState extends State<TooltipTarget> {
+class TooltipProState extends State<TooltipPro> {
   final GlobalKey _targetKey = GlobalKey();
   late final TooltipController _controller;
 

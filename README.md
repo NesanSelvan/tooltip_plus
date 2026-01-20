@@ -23,12 +23,12 @@ dependencies:
 
 ## Usage
 
-Wrap any widget with `TooltipTarget` to add a tooltip to it.
+Wrap any widget with `TooltipPro` to add a tooltip to it.
 
 ### Basic Usage
 
 ```dart
-TooltipTarget(
+TooltipPro(
   tooltipContent: Text(
     "Hello World!",
     style: TextStyle(color: Colors.white),
@@ -43,7 +43,7 @@ TooltipTarget(
 Use the `.minimal` factory for simple text tooltips.
 
 ```dart
-TooltipTarget.minimal(
+TooltipPro.minimal(
   text: "Copied to clipboard!",
   child: IconButton(
     icon: Icon(Icons.copy),
@@ -57,7 +57,7 @@ TooltipTarget.minimal(
 Use the `.rich` factory for more complex notifications or information.
 
 ```dart
-TooltipTarget.rich(
+TooltipPro.rich(
   title: "Feature Available",
   description: "You can now use the new improved search functionality.",
   icon: Icons.new_releases,
@@ -70,7 +70,7 @@ TooltipTarget.rich(
 You can fully customize the arrow's size and position. This is useful when you want a specific look or need to align the arrow with a specific part of your UI.
 
 ```dart
-TooltipTarget(
+TooltipPro(
   arrowWidth: 20.0,   // Customize width
   arrowHeight: 15.0,  // Customize height
   customArrowOffset: 0.5, // Center the arrow (0.0 to 1.0)
@@ -83,7 +83,7 @@ TooltipTarget(
 ### Error Tooltip
 
 ```dart
-TooltipTarget.error(
+TooltipPro.error(
   message: "Network connection lost.",
   child: Icon(Icons.wifi_off),
 )
@@ -91,7 +91,7 @@ TooltipTarget.error(
 
 ## Configuration
 
-The `TooltipTarget` widget offers extensive configuration options.
+The `TooltipPro` widget offers extensive configuration options.
 
 ### General
 | Parameter | Type | Default | Description |

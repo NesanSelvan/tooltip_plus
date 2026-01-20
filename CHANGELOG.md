@@ -1,3 +1,7 @@
+## 0.0.2
+
+* **Breaking Change**: Renamed `TooltipTarget` to `TooltipPro` to match package name.
+
 ## 0.0.1
 
 * Initial release of `tooltip_pro`.

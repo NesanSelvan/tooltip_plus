@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text('You have pushed the button this many times:'),
-            TooltipTarget.minimal(
+            TooltipPro.minimal(
               text: "Counter: $_counter",
               child: Text(
                 '$_counter',
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: TooltipTarget.minimal(
+      floatingActionButton: TooltipPro.minimal(
         spacing: 30,
 
         // arrowDirection: TooltipArrowDirection.right,
