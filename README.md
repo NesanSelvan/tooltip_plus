@@ -10,7 +10,7 @@ A powerful and flexible tooltip package for Flutter that goes beyond simple text
 *   🎨 **Styling**: Configure background colors, borders, shadows, and even background blur effects.
 *   🏭 **Factory Constructors**: Built-in `minimal`, `rich`, and `error` factories for quick and beautiful presets.
 *   ⏳ **Auto-dismiss**: Optional auto-dismiss timer.
-*   🛠️ **Builders**: Dynamic content generation using builders.
+*   🛠️ **Builders**: Dynamic content generation using builders .
 
 ## Getting started
 
