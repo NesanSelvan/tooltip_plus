@@ -4,13 +4,13 @@ A powerful and flexible tooltip package for Flutter that goes beyond simple text
 
 ## Features
 
-*   **Rich Content Support**: Create tooltips with titles, descriptions, icons, or any custom widget.
-*   **Flexible Positioning**: Position tooltips TOP, BOTTOM, LEFT, or RIGHT of the target.
-*   **Arrow Customization**: precise control over arrow direction, width, height, and offset.
-*   **Styling**: Configure background colors, borders, shadows, and even background blur effects.
-*   **Factory Constructors**: Built-in `minimal`, `rich`, and `error` factories for quick and beautiful presets.
-*   **Auto-dismiss**: Optional auto-dismiss timer.
-*   **Builders**: Dynamic content generation using builders.
+*   ✨ **Rich Content Support**: Create tooltips with titles, descriptions, icons, or any custom widget.
+*   📍 **Flexible Positioning**: Position tooltips TOP, BOTTOM, LEFT, or RIGHT of the target.
+*   🎯 **Arrow Customization**: precise control over arrow direction, width, height, and offset.
+*   🎨 **Styling**: Configure background colors, borders, shadows, and even background blur effects.
+*   🏭 **Factory Constructors**: Built-in `minimal`, `rich`, and `error` factories for quick and beautiful presets.
+*   ⏳ **Auto-dismiss**: Optional auto-dismiss timer.
+*   🛠️ **Builders**: Dynamic content generation using builders.
 
 ## Getting started
 
