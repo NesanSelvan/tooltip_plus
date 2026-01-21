@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:tooltip_pro/src/tooltip_content.dart';
@@ -9,6 +10,7 @@ class TooltipController {
   OverlayEntry? _childEntry;
   OverlayEntry? _overlayEntry;
   VoidCallback? _onDismiss;
+  Timer? _dismissTimer;
 
   bool get isVisible => _overlayEntry != null;
 
@@ -47,6 +49,7 @@ class TooltipController {
     Offset? touchPoint,
   }) {
     hide();
+    _dismissTimer?.cancel();
     _onDismiss = onDismiss;
 
     final RenderBox? renderBox =
@@ -132,13 +135,15 @@ class TooltipController {
     Overlay.of(context).insert(_overlayEntry!);
 
     if (autoDismiss != null) {
-      Future.delayed(autoDismiss, () {
+      _dismissTimer = Timer(autoDismiss, () {
         hide();
       });
     }
   }
 
   void hide() {
+    _dismissTimer?.cancel();
+    _dismissTimer = null;
     _backgroundEntry?.remove();
     _backgroundEntry = null;
     _childEntry?.remove();
