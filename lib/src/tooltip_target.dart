@@ -366,12 +366,17 @@ class TooltipProState extends State<TooltipPro> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Listener(
       key: _targetKey,
-      onTapDown: (details) {
-        _tapPosition = details.globalPosition;
+      onPointerDown: (event) {
+        _tapPosition = event.position;
       },
-      onTap: _showTooltip,
+      onPointerUp: (event) {
+        if (_tapPosition != null &&
+            (event.position - _tapPosition!).distance < 5.0) {
+          _showTooltip();
+        }
+      },
       child: widget.child,
     );
   }
