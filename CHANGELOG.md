@@ -1,3 +1,7 @@
+## 0.0.8
+
+* **Fix**: Fixed cumulative layout shift in README where images would initially load at full width.
+
 ## 0.0.7
 
 * **Fix**: Updated README image links to use absolute GitHub URLs to ensure correct rendering on pub.dev.
